@@ -6,4 +6,4 @@ COPY src .
 
 RUN javac Tester.java
 
-CMD["java","Tester"]
+CMD ["java", "Tester"]
