@@ -1,4 +1,9 @@
-FROM ubuntu:latest
-LABEL authors="deshan.vimukthi"
+FROM openjdk:21-jdk-slim
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY src .
+
+RUN javac Tester.java
+
+CMD["java","Tester"]
