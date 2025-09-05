@@ -20,3 +20,25 @@ FLAGS {
 
 
 
+NEW TABLE user (
+   userId INT = {nullable: false, default: 1, searchable: true, unique: true},
+   userName CHAR[200] = {nullable: true, fk: employee.id},
+   registered FLAG = {nullable: true, value: ["yes","no"]}
+) primary = userId;
+
+ALTER TABLE user (
+   ADD COLUMN status FLAG = {nullable: false, value: ["offline","idle","active","error"]},
+   EDIT COLUMN userName AS CHAR[128]
+);
+
+
+INSERT INTO user (userId, userName, registered, status)
+VALUES (101, "Alice", "yes", "active");
+
+FLAGS {
+   Gender = { "0": "Male", "1": "Female" },
+   Status = { "0": "Offline", "1": "Idle", "2": "Active", "3": "Error" }
+}
+
+
+
