@@ -40,6 +40,7 @@ public class Lexer {
 
         while(index < line.length()) {
             char c = line.charAt(index);
+            System.out.println(c);
             if(isString) {
                 if(c == quotationMark.peek()){
                     isString = false;
